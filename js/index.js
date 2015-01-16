@@ -91,20 +91,6 @@ angular.module('index', [])
     // TODO: lol, this controller is out of control. Refactor and maybe actually
     // use Angular properly.
 
-    var setupVideoPassthrough = function () {
-      navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-      navigator.getUserMedia(
-        {video: true},
-        function (stream) {
-          var monitor = document.getElementById('monitor');
-          monitor.src = window.URL.createObjectURL(stream);
-        },
-        function () {
-          // video pass-through is optional.
-        }
-      );
-    };
-    setupVideoPassthrough();
 
     var setupSketch = function () {
       var autosave = localStorage.getItem('autosave');
